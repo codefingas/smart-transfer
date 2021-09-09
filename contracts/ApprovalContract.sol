@@ -1,24 +1,23 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.5.0;
 
 contract ApprovalContract {
 
-    address public sender;
-    address public reciever;
-    address public constant approver = ;
+    address payable public sender;
+    address payable public reciever;
+    address public constant approver = 0x71C4816d7066d0c1Be935830D77401Cf236916B5;
 
-
-    function deposit(address _reciever) external payable {
+    function deposit(address payable _reciever) external payable {
         require(msg.value > 0);
         sender = msg.sender;
         reciever = _reciever;
     }
 
     function viewApprover() external pure returns(address) {
-        returns(approver);
-    };
+        return (approver);
+    }
 
-    function approve() external {
-        require(msg.sender === approver);
+    function approve() external{
+        require(msg.sender == approver);
         reciever.transfer(address(this).balance);
     }
 
