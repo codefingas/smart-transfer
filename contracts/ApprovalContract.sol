@@ -4,7 +4,7 @@ contract ApprovalContract {
 
     address payable public sender;
     address payable public reciever;
-    address public constant approver = 0x71C4816d7066d0c1Be935830D77401Cf236916B5;
+    address public constant approver = 0xE1cb6E09a0859F6D9f1d1cE23DC592606EbfA664;
 
     function deposit(address payable _reciever) external payable {
         require(msg.value > 0);
